@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /**
  * Created by LaunchCode
+ * first commit by Marleny
  */
 public class TechJobs {
 
