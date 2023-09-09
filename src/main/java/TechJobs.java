@@ -45,22 +45,6 @@ public class TechJobs {
 
                     ArrayList<String> results = JobData.findAll(columnChoice);
 
-                    //format according to assignment
-//                    *****
-//                    position type: Data Scientist / Business Intelligence
-//                    name: Sr. IT Analyst (Data/BI)
-//                    employer: Bull Moose Industries
-//                    location: Saint Louis
-//                    core competency: Statistical Analysis
-                    //*****
-//
-                    //*****
-//                    position type: Web - Back End
-//                    name: Ruby specialist
-//                    employer: LaunchCode
-//                    location: Saint Louis
-//                    core competency: Javascript
-//                    *****
 
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
@@ -138,13 +122,11 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        String noResult = "These are the strings"
         if (someJobs.isEmpty()) {
             System.out.println("Search term: ");
             System.out.println("Example Search Term with No Results: ");
             System.out.println("No Results");
-            System.out.println("View jobs by (type 'x' to quit):");
-            System.out.println("0 - Search");
-            System.out.println("1 - List");
         } else {
             for (HashMap<String, String> job : someJobs) {
                 System.out.println("*****");
