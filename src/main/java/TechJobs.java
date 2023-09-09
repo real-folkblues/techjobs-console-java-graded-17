@@ -138,15 +138,21 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-if (someJobs == null){
-    System.out.println("Search term: \n");
-            System.out.println("Example Search Term with No Results: \n");
-                    System.out.println("No Results \n");
-    System.out.println("View jobs by (type 'x' to quit) \n");
-    System.out.println("0 - Search \n");
-    System.out.println("1 - List \n");
-}
-        System.out.println("No results");
+if (someJobs.isEmpty()){
+    System.out.println("Search term: ");
+            System.out.println("Example Search Term with No Results: ");
+                    System.out.println("No Results");
+    System.out.println("View jobs by (type 'x' to quit):");
+    System.out.println("0 - Search");
+    System.out.println("1 - List");
+    } else {
+    for (HashMap<String, String> job : someJobs) {
+        System.out.println("*****");
+        for (Map.Entry<String, String> entry :job.entrySet()){
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("*****");
+        System.out.println();
     }
-
+    }
 }
