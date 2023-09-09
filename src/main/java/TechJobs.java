@@ -11,7 +11,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -110,7 +110,7 @@ public class TechJobs {
 
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
-                System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
+                System.out.println(" " + j + " - " + choices.get(choiceKeys[j]));
             }
 
             if (in.hasNextInt()) {
@@ -131,28 +131,29 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-if (someJobs.isEmpty()){
-    System.out.println("Search term: ");
+        if (someJobs.isEmpty()) {
+            System.out.println("Search term: ");
             System.out.println("Example Search Term with No Results: ");
-                    System.out.println("No Results");
-    System.out.println("View jobs by (type 'x' to quit):");
-    System.out.println("0 - Search");
-    System.out.println("1 - List");
-    } else {
-    for (HashMap<String, String> job : someJobs) {
-        System.out.println("*****");
-        for (Map.Entry<String, String> entry :job.entrySet()){
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+            System.out.println("No Results");
+            System.out.println("View jobs by (type 'x' to quit):");
+            System.out.println("0 - Search");
+            System.out.println("1 - List");
+        } else {
+            for (HashMap<String, String> job : someJobs) {
+                System.out.println("*****");
+                for (Map.Entry<String, String> entry : job.entrySet()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+                System.out.println("*****");
+                System.out.println();
+            }
         }
-        System.out.println("*****");
-        System.out.println();
-    }
     }
 }
