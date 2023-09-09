@@ -28,11 +28,11 @@ public class TechJobs {
 
         System.out.println("Welcome to LaunchCode's TechJobs App!");
 
-        // Allow the user to search until they manually quit
+        // Allow the user to search until they manually quit; infinite loop ideal in this case
         while (true) {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
-
+// where getUser method on ln 75 is called
             if (actionChoice == null) {
                 break;
             } else if (actionChoice.equals("list")) {
@@ -44,6 +44,24 @@ public class TechJobs {
                 } else {
 
                     ArrayList<String> results = JobData.findAll(columnChoice);
+
+                    //format according to assignment
+//                    *****
+//                    position type: Data Scientist / Business Intelligence
+//                    name: Sr. IT Analyst (Data/BI)
+//                    employer: Bull Moose Industries
+//                    location: Saint Louis
+//                    core competency: Statistical Analysis
+                    //*****
+//
+                    //*****
+//                    position type: Web - Back End
+//                    name: Ruby specialist
+//                    employer: LaunchCode
+//                    location: Saint Louis
+//                    core competency: Javascript
+//                    *****
+
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
@@ -120,7 +138,15 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
+if (someJobs == null){
+    System.out.println("Search term: \n");
+            System.out.println("Example Search Term with No Results: \n");
+                    System.out.println("No Results \n");
+    System.out.println("View jobs by (type 'x' to quit) \n");
+    System.out.println("0 - Search \n");
+    System.out.println("1 - List \n");
+}
+        System.out.println("No results");
     }
+
 }
