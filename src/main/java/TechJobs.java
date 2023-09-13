@@ -61,17 +61,17 @@ public class TechJobs {
 
                 //input search term
                 System.out.println("Search term: ");
-                String searchTerm = in.nextLine();
+                String searchInput = in.nextLine();
 
                 ArrayList<HashMap<String, String>> searchResults;
 
                 if (columnChoice.equals("all")){
                     //findbyValue method call, if all type search
-                    searchResults = JobData.findByValue(searchTerm);
+                    searchResults = JobData.findByValue(searchInput);
 
                 } else {
                     //findbyCandV
-                    searchResults = JobData.findByColumnAndValue(columnChoice, searchTerm);
+                    searchResults = JobData.findByColumnAndValue(columnChoice, searchInput);
                 }
 
                 printJobs(searchResults);
