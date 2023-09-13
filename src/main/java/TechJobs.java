@@ -56,6 +56,25 @@ public class TechJobs {
                 }
 
             } else { // choice is "search"
+                //choose collumn to search or all
+                String columnChoice = getUserSelection("Search by: ", columnChoices);
+
+                //input search term
+                System.out.println("Search term: ");
+                String searchTerm = in.nextLine();
+
+                ArrayList<HashMap<String, String>> searchResults;
+
+                if (columnChoice.equals("all")){
+                    //findbyValue method call, if all type search
+                    searchResults = JobData.findByValue(searchTerm);
+
+                } else {
+                    //findbyCandV
+                    searchResults = JobData.findByColumnAndValue(columnChoice, searchTerm);
+                }
+
+                printJobs(searchResults);
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
@@ -122,7 +141,7 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        String noResult = "These are the strings"
+        String noResult = "These are the strings";
         if (someJobs.isEmpty()) {
             System.out.println("Search term: ");
             System.out.println("Example Search Term with No Results: ");
