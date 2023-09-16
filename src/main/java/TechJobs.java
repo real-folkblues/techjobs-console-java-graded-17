@@ -5,13 +5,12 @@ import java.util.Scanner;
 
 /**
  * Created by LaunchCode
- * first commit by Marleny
  */
 public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -28,11 +27,11 @@ public class TechJobs {
 
         System.out.println("Welcome to LaunchCode's TechJobs App!");
 
-        // Allow the user to search until they manually quit; infinite loop ideal in this case
+        // Allow the user to search until they manually quit
         while (true) {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
-// where getUser method on ln 75 is called
+
             if (actionChoice == null) {
                 break;
             } else if (actionChoice.equals("list")) {
@@ -45,8 +44,6 @@ public class TechJobs {
 
                     ArrayList<String> results = JobData.findAll(columnChoice);
 
-
-
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
                     // Print list of skills, employers, etc
@@ -56,25 +53,6 @@ public class TechJobs {
                 }
 
             } else { // choice is "search"
-                //choose collumn to search or all
-                String columnChoice = getUserSelection("Search by: ", columnChoices);
-
-                //input search term
-                System.out.println("Search term: ");
-                String searchTerm = in.nextLine();
-
-                ArrayList<HashMap<String, String>> searchResults;
-
-                if (columnChoice.equals("all")){
-                    //findbyValue method call, if all type search
-                    searchResults = JobData.findByValue(searchTerm);
-
-                } else {
-                    //findbyCandV
-                    searchResults = JobData.findByColumnAndValue(columnChoice, searchTerm);
-                }
-
-                printJobs(searchResults);
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
@@ -113,7 +91,7 @@ public class TechJobs {
 
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
-                System.out.println(" " + j + " - " + choices.get(choiceKeys[j]));
+                System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
             }
 
             if (in.hasNextInt()) {
@@ -134,25 +112,26 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while (!validChoice);
+        } while(!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        String noResult = "These are the strings";
-        if (someJobs.isEmpty()) {
+        if (someJobs.isEmpty()){
             System.out.println("Search term: ");
             System.out.println("Example Search Term with No Results: ");
-            System.out.println("No Results");
-        } else {
-            for (HashMap<String, String> job : someJobs) {
+            System.out.print("No Results");
+//            System.out.println("printJobs is not implemented yet");
+        } else{
+            for(HashMap<String, String> job : someJobs) {
                 System.out.println("*****");
                 for (Map.Entry<String, String> entry : job.entrySet()) {
                     System.out.println(entry.getKey() + ": " + entry.getValue());
                 }
-                System.out.println("*****");
+                System.out.print("*****");
+                System.out.println();
                 System.out.println();
             }
         }
