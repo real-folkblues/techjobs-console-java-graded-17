@@ -53,9 +53,8 @@ public class TechJobs {
                 }
 
             } else { // choice is "search"
-<<<<<<< HEAD
-=======
-                //choose collumn to search or all
+
+                //choose column to search or all
                 String columnChoice = getUserSelection("Search by: ", columnChoices);
 
                 //input search term
@@ -74,7 +73,7 @@ public class TechJobs {
                 }
 
                 printJobs(searchResults);
->>>>>>> ea5fd9e45f0fd743f7cdd3a42824930ee4bcf118
+//deleted weird token
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
